@@ -1,0 +1,32 @@
+#titulo {
+    text-align: center;
+    font-weight: bold;
+   
+    
+}
+
+.Post_titulo{
+
+    text-align: right;
+    background-color: lightblue;
+
+}
+
+.Menu {
+    text-align: center;
+    
+}
+.Post{
+    padding: 25px 50px 75px 100px;
+    background-color: lightcoral;
+    text-align: left;
+    border: 2px dashed red;
+    border-radius: 100px
+
+
+}
+
+.Enlaces {
+    text-align: left;
+    width: 240px; height: 150px;
+}
