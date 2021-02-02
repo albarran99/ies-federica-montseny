@@ -19,7 +19,7 @@ public class MainCompany {
         System.out.println("Introduce el puesto de el empleado");
         String role = scan.next();
         System.out.println("Introduce el codigo postal de el empleado");
-        int cp = scan.nextInt();
+        int cp = getPositiveNumber();
         System.out.println("Introduce el nif de el empleado");
         String nif = scan.next();
         return new Employee(nif, name, surname, role, cp);
