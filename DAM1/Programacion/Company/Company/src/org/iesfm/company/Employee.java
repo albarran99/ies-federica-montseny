@@ -7,13 +7,16 @@ public class Employee {
     private String name;
     private String surname;
     private String role;
+    private int cp;
 
-    public Employee(String nif, String name, String surname, String role) {
+    public Employee(String nif, String name, String surname, String role, int cp) {
         this.nif = nif;
         this.name = name;
         this.surname = surname;
         this.role = role;
+        this.cp = cp;
     }
+
 
     public void info() {
         System.out.println("El empleado tiene de nombre " + name + " con apellido "+ surname + " con NIF" + nif + " y con el puesto de " + role);
@@ -51,16 +54,24 @@ public class Employee {
         this.role = role;
     }
 
+    public int getCp() {
+        return cp;
+    }
+
+    public void setCp(int cp) {
+        this.cp = cp;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Objects.equals(nif, employee.nif) && Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname) && Objects.equals(role, employee.role);
+        return cp == employee.cp && Objects.equals(nif, employee.nif) && Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname) && Objects.equals(role, employee.role);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nif, name, surname, role);
+        return Objects.hash(nif, name, surname, role, cp);
     }
 }
