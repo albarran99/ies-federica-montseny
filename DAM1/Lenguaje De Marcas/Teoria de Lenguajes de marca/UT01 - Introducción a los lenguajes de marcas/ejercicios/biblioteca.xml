@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<Biblioteca>
+	<Libro ISBN="4343545">
+		<Titulo>Cien años de soledad</Titulo>
+		<AnyoPublicacion>1976</AnyoPublicacion>
+		<Autores>
+			<Autor >
+				<Nombre>Gabriel García Márquez</Nombre>
+				<Nacionalidad>Colombia</Nacionalidad>
+				<FechaNacimiento>01-01-1945</FechaNacimiento>
+			</Autor>
+		</Autores>
+		<Genero>Realismo mágico</Genero>
+		<Ejemplares>
+			<Ejemplar numero="1">
+				<Estado>Prestado</Estado>
+				<FechaAdquisicion>03-12-2014</FechaAdquisicion>
+			</Ejemplar>
+			<Ejemplar numero="2">
+				<Estado>Disponible</Estado>
+				<FechaAdquisicion>03-12-2014</FechaAdquisicion>
+			</Ejemplar>
+		</Ejemplares>
+	</Libro>
+
+	<Libro ISBN="4353445">
+		<Titulo>Programación en Java</Titulo>
+		<AnyoPublicacion>2019</AnyoPublicacion>
+		<Autores>
+			<Autor >
+				<Nombre>Miguel Álvarez</Nombre>
+				<Nacionalidad>España</Nacionalidad>
+				<FechaNacimiento>01-01-1945</FechaNacimiento>
+			</Autor>
+			<Autor >
+				<Nombre>Ana López</Nombre>
+				<Nacionalidad>Ecuador</Nacionalidad>
+				<FechaNacimiento>01-01-1955</FechaNacimiento>
+			</Autor>
+		</Autores>
+		<Genero>Técnico</Genero>
+		<Ejemplares>
+			<Ejemplar numero="1">
+				<Estado>Prestado</Estado>
+				<FechaAdquisicion>03-10-2020</FechaAdquisicion>
+			</Ejemplar>
+			<Ejemplar numero="2">
+				<Estado>Disponible</Estado>
+				<FechaAdquisicion>03-10-2020</FechaAdquisicion>
+			</Ejemplar>
+		</Ejemplares>
+	</Libro>
+
+</Biblioteca>

@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<Biblioteca xmlns:autor="http://w3.org/autor"
+			xmlns:ejemplar="http://w3.org/ejemplar" >
+	<Libro ISBN="4343545">
+		<Titulo>Cien años de soledad</Titulo>
+		<AnyoPublicacion>1976</AnyoPublicacion>
+		<Autores>
+			<autor:Autor>
+				<autor:Nombre>Gabriel García Márquez</autor:Nombre>
+				<autor:Nacionalidad>Colombia</autor:Nacionalidad>
+				<autor:FechaNacimiento>01-01-1945</autor:FechaNacimiento>
+			</autor:Autor>
+		</Autores>
+		<Genero>Realismo mágico</Genero>
+		<Ejemplares>
+			<ejemplar:Ejemplar numero="1">
+				<ejemplar:Estado>Prestado</ejemplar:Estado>
+				<ejemplar:FechaAdquisicion>03-12-2014</ejemplar:FechaAdquisicion>
+			</ejemplar:Ejemplar>
+			<ejemplar:Ejemplar numero="2">
+				<ejemplar:Estado>Disponible</ejemplar:Estado>
+				<ejemplar:FechaAdquisicion>03-12-2014</ejemplar:FechaAdquisicion>
+			</ejemplar:Ejemplar>
+		</Ejemplares>
+	</Libro>
+
+	<Libro ISBN="4353445">
+		<Titulo>Programación en Java</Titulo>
+		<AnyoPublicacion>2019</AnyoPublicacion>
+		<Autores>
+			<autor:Autor >
+				<autor:Nombre>Miguel Álvarez</autor:Nombre>
+				<autor:Nacionalidad>España</autor:Nacionalidad>
+				<autor:FechaNacimiento>01-01-1945</autor:FechaNacimiento>
+			</autor:Autor>
+			<autor:Autor >
+				<autor:Nombre>Ana López</autor:Nombre>
+				<autor:Nacionalidad>Ecuador</autor:Nacionalidad>
+				<autor:FechaNacimiento>01-01-1955</autor:FechaNacimiento>
+			</autor:Autor>
+		</Autores>
+		<Genero>Técnico</Genero>
+		<Ejemplares>
+			<ejemplar:Ejemplar numero="1">
+				<ejemplar:Estado>Prestado</ejemplar:Estado>
+				<ejemplar:FechaAdquisicion>03-10-2020</ejemplar:FechaAdquisicion>
+			</ejemplar:Ejemplar>
+			<ejemplar:Ejemplar numero="2">
+				<ejemplar:Estado>Disponible</ejemplar:Estado>
+				<ejemplar:FechaAdquisicion>03-10-2020</ejemplar:FechaAdquisicion>
+			</ejemplar:Ejemplar>
+		</Ejemplares>
+	</Libro>
+
+</Biblioteca>

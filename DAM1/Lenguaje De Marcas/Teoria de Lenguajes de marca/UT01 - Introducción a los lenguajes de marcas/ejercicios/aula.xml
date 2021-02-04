@@ -1,0 +1,20 @@
+<?xml version="1.0"encoding="utf-8"?>
+<Aula xmlns="http://w3.org/aula"
+	  xmlns:alumno="http://w3.org/alumno" >
+	
+	<CursoClase>1º de DAM</CursoClase>
+	<Letra>A</Letra>
+	<NumeroAula>109</NumeroAula>
+	<Alumnos>
+		<alumno:Alumno>
+			<alumno:Nombre>Fulanito</alumno:Nombre>
+			<alumno:Apellidos>Sánchez</alumno:Apellidos>
+			<alumno:Direccion>Calle Mayor</alumno:Direccion>
+		</alumno:Alumno>
+		<alumno:Alumno>
+			<alumno:Nombre>Menganito</alumno:Nombre>
+			<alumno:Apellidos>García</alumno:Apellidos>
+			<alumno:Direccion>Calle Menor</alumno:Direccion>
+		</alumno:Alumno>
+	</Alumnos>
+</Aula>
