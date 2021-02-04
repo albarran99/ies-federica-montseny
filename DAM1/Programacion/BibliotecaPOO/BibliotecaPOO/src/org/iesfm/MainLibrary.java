@@ -1,13 +1,14 @@
 package org.iesfm;
 
-import org.iesfm.reader.MemberReader;
+import org.iesfm.reader.LibraryReader;
 
 public class MainLibrary {
 
     public static void main(String[] args) {
-        MemberReader memberReader = new MemberReader();
-
-        memberReader.readerMember();
+        LibraryReader libraryReader = new LibraryReader();
+        Library library = libraryReader.readLibrary();
+        library.showBooks();
 
     }
+
 }

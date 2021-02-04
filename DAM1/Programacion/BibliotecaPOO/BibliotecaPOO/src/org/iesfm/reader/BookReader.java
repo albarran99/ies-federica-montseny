@@ -10,7 +10,6 @@ public class BookReader {
     private Scanner scan = new Scanner(System.in);
 
     public Book readBook() {
-        System.out.println("Introduce los datos de el libro");
         System.out.println("Introduce el ISBN");
         int isbn = readIsbn();
         System.out.println("Introduce el titulo");
@@ -49,13 +48,22 @@ public class BookReader {
 
     }
 
+    public void showGenre() {
+        System.out.println("Escribe el nombre de el genero");
+        String nameGenre = scan.nextLine();
+
+
+    }
+
     private int readNumGenres() {
         Integer numgenres = null;
         while (numgenres == null || numgenres < 0) {
-            System.out.println("El numero de generos tiene que ser mayor que 0");
             try {
                 numgenres = scan.nextInt();
                 scan.nextLine();
+                if (numgenres < 0) {
+                    System.out.println("El numero de generos tiene que ser mayor que 0");
+                }
             } catch (InputMismatchException e) {
                 System.out.println("Error, la cantidad de generos es un numero");
                 scan.nextLine();

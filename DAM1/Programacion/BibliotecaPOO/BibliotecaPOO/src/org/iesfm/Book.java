@@ -16,11 +16,11 @@ public class Book {
         this.genres = genres;
     }
 
-    public void infoLibro() {
+    public void info() {
         System.out.println("Los libros son " + title + " con autor" + author + " con ISBN" + isbn);
     }
 
-    public boolean esDelGenero(String genero) {
+    public boolean getGenreByGenre(String genero) {
         boolean resultado = false;
         for (int i = 0; i < genres.length; i++) {
             if (genres[i].equalsIgnoreCase(genero)) {
@@ -28,7 +28,7 @@ public class Book {
             }
         }
 
-        return  resultado;
+        return resultado;
     }
 
     public int getIsbn() {

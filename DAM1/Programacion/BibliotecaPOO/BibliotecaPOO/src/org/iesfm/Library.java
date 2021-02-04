@@ -17,11 +17,10 @@ public class Library implements ILibrary {
     }
 
 
-    @Override
-    public void imprimeLibro() {
+    public void showBooks() {
         for (int i = 0; i < books.length; i++) {
             Book libro = books[i];
-            libro.infoLibro();
+            libro.info();
         }
     }
 
@@ -29,8 +28,8 @@ public class Library implements ILibrary {
     public void imprimeLibroPorGenero(String genero) {
         for (int i = 0; i < books.length; i++) {
             Book libro = books[i];
-            if (libro.esDelGenero(genero)) {
-                libro.infoLibro();
+            if (libro.getGenreByGenre(genero)) {
+                libro.info();
             }
         }
     }
@@ -44,6 +43,7 @@ public class Library implements ILibrary {
             }
         }
     }
+
 
     public String getName() {
         return name;

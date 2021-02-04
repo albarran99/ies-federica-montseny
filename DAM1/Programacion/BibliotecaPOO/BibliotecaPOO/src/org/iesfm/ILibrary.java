@@ -2,7 +2,7 @@ package org.iesfm;
 
 public interface ILibrary {
 
-    void imprimeLibro ();
+    void showBooks();
 
     void imprimeLibroPorGenero(String genero);
 

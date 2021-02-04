@@ -73,6 +73,7 @@ public class LibraryReader {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Tiene que ser un numero");
+                scan.nextLine();
             }
         }
         return number;
