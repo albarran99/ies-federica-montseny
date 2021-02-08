@@ -16,111 +16,62 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `empleado`
+-- Table structure for table `cities`
 --
 
-DROP TABLE IF EXISTS `empleado`;
+DROP TABLE IF EXISTS `cities`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `empleado` (
-  `DNI_empleado` varchar(9) NOT NULL,
-  `nombre` varchar(20) DEFAULT NULL,
-  `domicilio` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`DNI_empleado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `empleado`
---
-
-LOCK TABLES `empleado` WRITE;
-/*!40000 ALTER TABLE `empleado` DISABLE KEYS */;
-/*!40000 ALTER TABLE `empleado` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `existencias`
---
-
-DROP TABLE IF EXISTS `existencias`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `existencias` (
-  `COD_articulo` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(20) DEFAULT NULL,
-  `cantidad` int DEFAULT NULL,
-  `COD_pub` int DEFAULT NULL,
-  PRIMARY KEY (`COD_articulo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `existencias`
---
-
-LOCK TABLES `existencias` WRITE;
-/*!40000 ALTER TABLE `existencias` DISABLE KEYS */;
-/*!40000 ALTER TABLE `existencias` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `localidad`
---
-
-DROP TABLE IF EXISTS `localidad`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `localidad` (
+CREATE TABLE `cities` (
   `COD_localidad` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(20) DEFAULT NULL,
+  `Province` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`COD_localidad`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `localidad`
+-- Dumping data for table `cities`
 --
 
-LOCK TABLES `localidad` WRITE;
-/*!40000 ALTER TABLE `localidad` DISABLE KEYS */;
-/*!40000 ALTER TABLE `localidad` ENABLE KEYS */;
+LOCK TABLES `cities` WRITE;
+/*!40000 ALTER TABLE `cities` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cities` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `pub`
+-- Table structure for table `employees`
 --
 
-DROP TABLE IF EXISTS `pub`;
+DROP TABLE IF EXISTS `employees`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `pub` (
-  `COD_PUB` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `employees` (
+  `DNI_empleado` varchar(9) NOT NULL,
   `nombre` varchar(20) DEFAULT NULL,
-  `licencia_fiscal` varchar(20) DEFAULT NULL,
   `domicilio` varchar(20) DEFAULT NULL,
-  `COD_localidad` int DEFAULT NULL,
-  PRIMARY KEY (`COD_PUB`)
+  `age` int DEFAULT NULL,
+  PRIMARY KEY (`DNI_empleado`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `pub`
+-- Dumping data for table `employees`
 --
 
-LOCK TABLES `pub` WRITE;
-/*!40000 ALTER TABLE `pub` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pub` ENABLE KEYS */;
+LOCK TABLES `employees` WRITE;
+/*!40000 ALTER TABLE `employees` DISABLE KEYS */;
+/*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `titular`
+-- Table structure for table `owners`
 --
 
-DROP TABLE IF EXISTS `titular`;
+DROP TABLE IF EXISTS `owners`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `titular` (
+CREATE TABLE `owners` (
   `DNI_titular` varchar(9) NOT NULL,
   `nombre` varchar(20) DEFAULT NULL,
   `licencia_fiscal` varchar(20) DEFAULT NULL,
@@ -131,12 +82,89 @@ CREATE TABLE `titular` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `titular`
+-- Dumping data for table `owners`
 --
 
-LOCK TABLES `titular` WRITE;
-/*!40000 ALTER TABLE `titular` DISABLE KEYS */;
-/*!40000 ALTER TABLE `titular` ENABLE KEYS */;
+LOCK TABLES `owners` WRITE;
+/*!40000 ALTER TABLE `owners` DISABLE KEYS */;
+/*!40000 ALTER TABLE `owners` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pub_employees`
+--
+
+DROP TABLE IF EXISTS `pub_employees`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `pub_employees` (
+  `cod_pub` varchar(20) NOT NULL,
+  `dni_empleado` varchar(20) NOT NULL,
+  `funcion` varchar(20) NOT NULL,
+  PRIMARY KEY (`cod_pub`,`dni_empleado`,`funcion`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pub_employees`
+--
+
+LOCK TABLES `pub_employees` WRITE;
+/*!40000 ALTER TABLE `pub_employees` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pub_employees` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pubs`
+--
+
+DROP TABLE IF EXISTS `pubs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `pubs` (
+  `COD_PUB` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(20) DEFAULT NULL,
+  `licencia_fiscal` varchar(20) DEFAULT NULL,
+  `domicilio` varchar(20) DEFAULT NULL,
+  `COD_localidad` int DEFAULT NULL,
+  `opening_date` date DEFAULT NULL,
+  PRIMARY KEY (`COD_PUB`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pubs`
+--
+
+LOCK TABLES `pubs` WRITE;
+/*!40000 ALTER TABLE `pubs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pubs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `stocks`
+--
+
+DROP TABLE IF EXISTS `stocks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `stocks` (
+  `COD_articulo` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(20) DEFAULT NULL,
+  `cantidad` int DEFAULT NULL,
+  `COD_pub` int DEFAULT NULL,
+  `cost` int DEFAULT NULL,
+  PRIMARY KEY (`COD_articulo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `stocks`
+--
+
+LOCK TABLES `stocks` WRITE;
+/*!40000 ALTER TABLE `stocks` DISABLE KEYS */;
+/*!40000 ALTER TABLE `stocks` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -148,6 +176,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-02-05 14:36:34
-
-
+-- Dump completed on 2021-02-08  8:32:10
