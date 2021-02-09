@@ -1,54 +1,56 @@
 /*
 	EJER 1
+	(Esta bien)
 */
 
 CREATE TABLE `empleado` (
-  `DNI_empleado` varchar(9) NOT NULL,
-  `nombre` varchar(20) DEFAULT NULL,
+  `DNI_empleado` varchar(9) PRIMARY KEY,
+  `nombre` varchar(20) NOT NULL,
   `domicilio` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`DNI_empleado`)
   );
   
   CREATE TABLE `existencias` (
   `COD_articulo` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(20) DEFAULT NULL,
-  `cantidad` int DEFAULT NULL,
-  `COD_pub` int DEFAULT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `cantidad` int NOT NULL,
+  `COD_pub` int NOT NULL,
   PRIMARY KEY (`COD_articulo`)
   );
   
   CREATE TABLE `localidad` (
   `COD_localidad` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(20) DEFAULT NULL,
+  `nombre` varchar(20) NOT NULL,
   PRIMARY KEY (`COD_localidad`)
   );
   
   CREATE TABLE `pub` (
-  `COD_PUB` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(20) DEFAULT NULL,
-  `licencia_fiscal` varchar(20) DEFAULT NULL,
+  `COD_PUB` int AUTO_INCREMENT AUTO_INCREMENT,
+  `nombre` varchar(20) NOT NULL,
+  `licencia_fiscal` varchar(20) NOT NULL,
   `domicilio` varchar(20) DEFAULT NULL,
-  `COD_localidad` int DEFAULT NULL,
+  `COD_localidad` int NOT NULL,
   PRIMARY KEY (`COD_PUB`)
   );
   
   CREATE TABLE `titular` (
   `DNI_titular` varchar(9) NOT NULL,
-  `nombre` varchar(20) DEFAULT NULL,
+  `nombre` varchar(20) NOT NULL,
   `licencia_fiscal` varchar(20) DEFAULT NULL,
-  `domicilio` varchar(20) DEFAULT NULL,
-  `COD_pub` int DEFAULT NULL,
+  `domicilio` varchar(20) NOT NULL,
+  `COD_pub` int NOT NULL,
   PRIMARY KEY (`DNI_titular`)
   );
   
   CREATE TABLE PUB_empleado (
-  cod_pub VARCHAR(20),
-  dni_empleado VARCHAR(20),
-  funcion VARCHAR(20)
+  cod_pub VARCHAR(20) NOT NULL,
+  dni_empleado VARCHAR(20) NOT NULL,
+  funcion VARCHAR(20) NOT NULL
   );
   
   /*
 	EJER 2
+    (Esta bien)
   */
   
   ALTER TABLE pub
@@ -73,7 +75,7 @@ CREATE TABLE `empleado` (
 	EJER 3
   */
   
-  ALTER TABLE pubs ADD opening_date DATE;
+ALTER TABLE pubs ADD opening_date DATE;
   
 ALTER TABLE stocks ADD cost INT(50);
 
@@ -91,3 +93,44 @@ ADD CONSTRAINT PK_employees PRIMARY KEY (cod_pub, dni_empleado, funcion);
 /*
 	EJER 5
 */
+
+ALTER TABLE pubs
+MODIFY opening_date DATE NOT NULL;
+
+ALTER TABLE pubs MODIFY schedule_ VARCHAR(20) NOT NULL;
+
+ALTER TABLE cities
+MODIFY province VARCHAR(20) NOT NULL;
+
+ALTER TABLE stock
+ADD CONSTRAINT CHK_price CHECK (price > 0);
+
+ALTER TABLE stocks
+ALTER price SET DEFAULT 1;
+
+CREATE INDEX IDX_owners
+ON owners (dni_holder, hlder_name);
+
+ALTER TABLE stocks
+ALTER quantity SET DEFAULT 1;
+
+CREATE INDEX IDX_cities
+ON cities (cod_locality, locality_name);
+
+#Ejercicio 6
+
+ALTER TABLE owners
+DROP INDEX IDX_owners; 
+
+ALTER TABLE stocks
+ALTER cantidad DROP DEFAULT;
+
+ALTER TABLE cities
+DROP INDEX IDX_localidad;
+
+ALTER TABLE stocks
+DROP CHECK CHK_stocks;
+
+ALTER TABLE stocks
+ALTER price DROP DEFAULT;
+

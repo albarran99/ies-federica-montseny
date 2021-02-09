@@ -28,9 +28,9 @@ DROP TABLE task;
 
 USE prueba;
 
-CREATE TABLE IF NOT exists task (
+CREATE TABLE IF NOT exists employees (
 	id INT NOT NULL,
-    title VARCHAR(255) NOT NULL,
+    name_employee VARCHAR(255) NOT NULL,
     start_date DATE UNIQUE,
     end_date DATE,
     UNIQUE (end_date, title),
