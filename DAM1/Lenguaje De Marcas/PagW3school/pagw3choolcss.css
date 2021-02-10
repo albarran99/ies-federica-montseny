@@ -1,0 +1,54 @@
+body {
+    max-width: max-content;
+    max-height: max-content;
+}
+
+h1 {
+    color: lawngreen;
+}
+
+div {
+    display: block;
+    background-color: #eee;
+    max-width: auto;
+    width: 200px;
+    height: 1000px;
+    border: 1px dotted black;
+    overflow: scroll;
+  }
+
+  main section article {
+      position: relative;
+      bottom: 0px;
+      top: -1000px;
+      left: 210px;
+      right: 500px;
+  }
+
+  p {
+    text-align: center;
+  }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #111;
+  }
