@@ -134,3 +134,14 @@ DROP CHECK CHK_stocks;
 ALTER TABLE stocks
 ALTER price DROP DEFAULT;
 
+#EJER 7
+
+ALTER TABLE owners
+ADD CONSTRAINT FK_owners_pubs
+FOREIGN KEY (COD_pub) REFERENCES pubs(COD_pub);
+
+ALTER TABLE pub_employees
+ADD CONSTRAINT FK_pub_employees_pubs
+FOREIGN KEY (cod_pub) REFERENCES pubs(cod_pub);
+
+
