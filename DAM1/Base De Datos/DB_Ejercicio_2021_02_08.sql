@@ -144,4 +144,17 @@ ALTER TABLE pub_employees
 ADD CONSTRAINT FK_pub_employees_pubs
 FOREIGN KEY (cod_pub) REFERENCES pubs(cod_pub);
 
+ALTER TABLE pub_employees
+ADD CONSTRAINT FK_pub_employees_employees
+FOREIGN KEY (dni_empleado) REFERENCES employees(dni_empleado);
+
+ALTER TABLE stocks
+ADD CONSTRAINT FK_stocks_pubs
+FOREIGN KEY (COD_PUB) REFERENCES pubs(cod_pub);
+
+ALTER TABLE pubs
+ADD CONSTRAINT FK_pubs_cities
+FOREIGN KEY (COD_localidad) REFERENCES pubs(COD_localidad)
+
+#EJER8
 
