@@ -80,4 +80,62 @@ public class CalculatorText {
 
         Assert.assertEquals(0.3333333333333333, res, DELTA);
     }
+
+    @Test
+    public void divzeroNumberTest() {
+        //configurar el escenario del test
+        double a = 5;
+        double b = 0;
+
+        //ejecuta el text
+        double res = calculator.div(a, b);
+
+        Assert.assertEquals(0, res, DELTA);
+    }
+
+    @Test
+    public void multiplyPositiveNumberTest() {
+        //configurar el escenario del test
+        double a = 5;
+        double b = 0;
+
+        //ejecuta el text
+        double res = calculator.multiply(a, b);
+
+        Assert.assertEquals(0, res, DELTA);
+    }
+
+    @Test
+    public void multiplyNegativeNumberTest() {
+        //configurar el escenario del test
+        double a = -5;
+        double b = 4;
+
+        //ejecuta el text
+        double res = calculator.multiply(a, b);
+
+        Assert.assertEquals(-20, res, DELTA);
+    }
+
+    @Test
+    public void negPositiveNumberTest() {
+        //configurar el escenario del test
+        double a = 5;
+
+        //ejecuta el text
+        double res = calculator.neg(a);
+
+        Assert.assertEquals(-5, res, DELTA);
+    }
+
+    @Test
+    public void negNegativeNumberTest() {
+        //configurar el escenario del test
+        double a = -5;
+
+        //ejecuta el text
+        double res = calculator.neg(a);
+
+        Assert.assertEquals(5, res, DELTA);
+    }
 }
