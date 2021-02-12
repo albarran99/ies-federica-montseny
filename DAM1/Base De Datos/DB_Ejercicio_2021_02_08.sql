@@ -158,3 +158,52 @@ FOREIGN KEY (COD_localidad) REFERENCES pubs(COD_localidad)
 
 #EJER8
 
+ALTER TABLE owners
+DROP FOREIGN KEY FK_owners_pubs;
+
+ALTER TABLE pub_employees
+DROP FOREIGN KEY FK_pub_employees_pubs;
+
+ALTER TABLE pub_employees
+DROP FOREIGN KEY FK_pub_employees_employees;
+
+ALTER TABLE stocks
+DROP FOREIGN KEY FK_stocks_pubs;
+
+ALTER TABLE pubs
+DROP FOREIGN KEY FK_pubs_cities;
+
+#EJER9
+
+ CREATE TABLE PUB_empleado (
+  cod_pub VARCHAR(20) NOT NULL,
+  dni_empleado VARCHAR(20) NOT NULL,
+  funcion VARCHAR(20) NOT NULL,
+  CONSTRAINT  FK_pub_employees_pubs
+  FOREIGN KEY (cod_pub)
+  REFERENCES pubs (cod_pub)
+  );
+  
+ CREATE TABLE `titular` (
+  `DNI_titular` varchar(9) NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `licencia_fiscal` varchar(20) DEFAULT NULL,
+  `domicilio` varchar(20) NOT NULL,
+  `COD_pub` int NOT NULL,
+  PRIMARY KEY (`DNI_titular`),
+  CONSTRAINT FK_owners_pubs 
+  FOREIGN KEY (COD_pub)
+  REFERENCES pubs (cod_pub)
+  );
+  
+    CREATE TABLE `pub` (
+  `COD_PUB` int AUTO_INCREMENT AUTO_INCREMENT,
+  `nombre` varchar(20) NOT NULL,
+  `licencia_fiscal` varchar(20) NOT NULL,
+  `domicilio` varchar(20) DEFAULT NULL,
+  `COD_localidad` int NOT NULL,
+  PRIMARY KEY (`COD_PUB`),
+  CONSTRAINT FK_pubs_cities
+  FOREIGN KEY (COD_localidad)
+  REFERENCES pubs (COD_localidad)
+  );
