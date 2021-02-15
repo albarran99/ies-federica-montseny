@@ -109,11 +109,11 @@ ON plataform (id);
 # Creacion de las restringiones (fuera de las tablas)
 
 ALTER TABLE regions
-ADD CONSTRAINT CHK_region_name
+ADD CONSTRAINT UC_region_name
 UNIQUE (region_name);
 
 ALTER TABLE publisher
-ADD CONSTRAINT CHK_publisher_name
+ADD CONSTRAINT UC_publisher_name
 UNIQUE (publisher_name);
 
 ALTER TABLE region_sales
@@ -128,4 +128,22 @@ CHECK (num_sales >= 0);
 
 ALTER TABLE game_plataform
 ADD CONSTRAINT CHK_release_year
-CHECK (release_year >= 1989)
+CHECK (release_year >= 1989);
+
+# Dorpeo de las restrinciones creadas anteriormente
+
+ALTER TABLE region_sales
+ALTER num_sales DROP DEFAULT;
+
+ALTER TABLE game_plataform
+ALTER released_year DROP DEFAULT;
+
+DROP INDEX UC_region_name ON regions;
+
+DROP INDEX UC_publisher_name ON publisher;
+
+ALTER TABLE region_sales
+DROP CHECK CHK_region_sales;
+
+ALTER TABLE game_plataform
+DROP CHECK CHK_release_year;
