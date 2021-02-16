@@ -3,17 +3,16 @@ package org.iesfm.zoo;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Zoo implements IZoo{
+public class Zoo implements IZoo {
     private String Zoo;
     private Animal[] animals;
 
     public int showAnimalsByCage(int numberCage) {
-        Animal result = null;
-        for (Animal animal: animals){
-            if (animal.getCage() == (numberCage)){
-            }   result = animal;
+        for (Animal animal : animals) {
+            if (animal.getCage() == (numberCage)) {
+            }
         }
-        return animals;
+        return numberCage;
     }
 
     @Override
