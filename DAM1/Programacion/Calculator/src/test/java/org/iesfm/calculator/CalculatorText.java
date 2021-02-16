@@ -87,10 +87,19 @@ public class CalculatorText {
         double a = 5;
         double b = 0;
 
-        //ejecuta el text
         double res = calculator.div(a, b);
 
-        Assert.assertEquals(0, res, DELTA);
+       Assert.assertTrue(Double.isFinite(res));
+    }
+
+    @Test
+    public void divZeroByZeroText(){
+        double a = 0;
+        double b = 0;
+
+        double res = calculator.div(a, b);
+
+        Assert.assertTrue(Double.isNaN(res));
     }
 
     @Test
