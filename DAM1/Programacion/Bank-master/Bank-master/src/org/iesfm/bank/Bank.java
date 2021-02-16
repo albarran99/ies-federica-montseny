@@ -34,6 +34,11 @@ public class Bank implements IBank {
         }
     }
 
+    /**
+     * este metodo devuelve los clientes de un banco
+     * @param nif
+     * @return Devuelve a un cliente dado un nif, si no encuentra el cliente, da una excepcion
+     */
     private Client findClient(String nif) {
         Client result = null;
         for(Client client: clients) {
