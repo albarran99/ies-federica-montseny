@@ -2,46 +2,6 @@ CREATE SCHEMA game_management;
 
 CREATE DATABASE game_management;
 
-CREATE TABLE IF NOT EXISTS game_plataform (
-id INT AUTO_INCREMENT PRIMARY KEY,
-game_publisher_id INT NOT NULL,
-platform_id INT NOT NULL,
-release_year INT NOT NULL,
-
-CONSTRAINT FK_game_platform_id_game_publisher
-  FOREIGN KEY (game_publisher_id)
-  REFERENCES game_publisher (id),
-  
-  CONSTRAINT FK_game_platform_platform
-  FOREIGN KEY (platform_id)
-  REFERENCES platform (id)
-  );
-  
-  
-CREATE TABLE IF NOT EXISTS game_publisher (
-id INT AUTO_INCREMENT PRIMARY KEY,
-game_id INT NOT NULL,
-publisher_id INT NOT NULL,
-
-CONSTRAINT FK_game_publisher_game
-  FOREIGN KEY (game_id)
-  REFERENCES game (id),
-  
-  CONSTRAINT FK_game_publisher_publisher
-  FOREIGN KEY (publisher_id)
-  REFERENCES publisher (id)
-  );
-  
-  CREATE TABLE IF NOT EXISTS games (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  genre_id INT NOT NULL,
-  game_name VARCHAR(20),
-  
-  CONSTRAINT FK_genre_id
-  FOREIGN KEY (genre_id)
-  REFERENCES genre (id)
-  );
-  
 CREATE TABLE IF NOT EXISTS genre (
 id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
 genre_name VARCHAR(20) NOT NULL
@@ -57,18 +17,55 @@ id INT AUTO_INCREMENT PRIMARY KEY,
 platform VARCHAR(20) NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS regions (
+id INT PRIMARY KEY,
+region_name VARCHAR(20)
+);
+
 CREATE TABLE IF NOT EXISTS region_sales (
 region_id INT,
 game_platform_id INT,
 num_sales INT NOT NULL
 );
 
-DROP TABLE region_sales;
+CREATE TABLE IF NOT EXISTS games (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  genre_id INT NOT NULL,
+  game_name VARCHAR(20),
+  
+  CONSTRAINT FK_genre_id
+  FOREIGN KEY (genre_id)
+  REFERENCES genre (id)
+  );
 
-CREATE TABLE IF NOT EXISTS regions (
-id INT PRIMARY KEY,
-region_name VARCHAR(20)
-);
+CREATE TABLE IF NOT EXISTS game_publisher (
+id INT AUTO_INCREMENT PRIMARY KEY,
+game_id INT NOT NULL,
+publisher_id INT NOT NULL,
+
+CONSTRAINT FK_game_publisher_game
+  FOREIGN KEY (game_id)
+  REFERENCES games (id),
+  
+  CONSTRAINT FK_game_publisher_publisher
+  FOREIGN KEY (publisher_id)
+  REFERENCES publisher (id)
+  );
+
+CREATE TABLE IF NOT EXISTS game_plataform (
+id INT AUTO_INCREMENT PRIMARY KEY,
+game_publisher_id INT NOT NULL,
+platform_id INT NOT NULL,
+release_year INT NOT NULL,
+
+CONSTRAINT FK_game_platform_id_game_publisher
+  FOREIGN KEY (game_publisher_id)
+  REFERENCES game_publisher (id),
+  
+  CONSTRAINT FK_game_platform_platform
+  FOREIGN KEY (platform_id)
+  REFERENCES platform (id)
+  );
 
 #Parte en la que se crea las claves foraneas y primarias de la tabla region_sales y region
 
@@ -89,7 +86,7 @@ CREATE INDEX index_game_publisher
 ON game_publisher (id, game_id, publisher_id);
 
 CREATE INDEX index_region_sales
-ON region_sales (region_id, game_platfoem_id);
+ON region_sales (region_id, game_platform_id);
 
 CREATE INDEX index_regions
 ON regions (id);
@@ -98,13 +95,13 @@ CREATE INDEX index_genre
 ON genre (id);
 
 CREATE INDEX index_game 
-ON game (id, genre_id);
+ON games (id, genre_id);
 
 CREATE INDEX index_publisher
 ON publisher (id);
 
 CREATE INDEX index_platform 
-ON plataform (id);
+ON platform (id);
 
 # Creacion de las restringiones (fuera de las tablas)
 
@@ -136,7 +133,7 @@ ALTER TABLE region_sales
 ALTER num_sales DROP DEFAULT;
 
 ALTER TABLE game_plataform
-ALTER released_year DROP DEFAULT;
+ALTER release_year DROP DEFAULT;
 
 DROP INDEX UC_region_name ON regions;
 
