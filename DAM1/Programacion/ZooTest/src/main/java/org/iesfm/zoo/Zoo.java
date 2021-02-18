@@ -3,22 +3,30 @@ package org.iesfm.zoo;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Zoo implements IZoo{
+public class Zoo implements IZoo {
     private String Zoo;
     private Animal[] animals;
 
-    public int showAnimalsByCage(int numberCage) {
-        Animal result = null;
-        for (Animal animal: animals){
-            if (animal.getCage() == (numberCage)){
-            }   result = animal;
+    public int showAnimalsByCage(int cage) {
+        int count = 0;
+        for (Animal animal : animals) {
+            if (animal.getCage() == (cage)) {
+                count++;
+
+            }
         }
-        return animals;
+        return count;
     }
 
-    @Override
     public int showAnimalsByDiet(String diet) {
-        return 0;
+        int count = 0;
+        for (Animal animal : animals) {
+            if (animal.getDiet().equals(diet)) {
+                count++;
+
+            }
+        }
+        return count;
     }
 
     @Override

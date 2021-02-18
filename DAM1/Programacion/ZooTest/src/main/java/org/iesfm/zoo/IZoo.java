@@ -6,6 +6,6 @@ public interface IZoo {
 
     int showAnimalsByDiet(String diet);
 
-    int showAnimalsByKindAndCage(String kind, int hail);
+    int showAnimalsByKindAndCage(String kind, int cage);
 
 }

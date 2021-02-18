@@ -154,7 +154,7 @@ FOREIGN KEY (COD_PUB) REFERENCES pubs(cod_pub);
 
 ALTER TABLE pubs
 ADD CONSTRAINT FK_pubs_cities
-FOREIGN KEY (COD_localidad) REFERENCES pubs(COD_localidad)
+FOREIGN KEY (COD_localidad) REFERENCES cities(COD_localidad);
 
 #EJER8
 
@@ -181,7 +181,9 @@ DROP FOREIGN KEY FK_pubs_cities;
   funcion VARCHAR(20) NOT NULL,
   CONSTRAINT  FK_pub_employees_pubs
   FOREIGN KEY (cod_pub)
-  REFERENCES pubs (cod_pub)
+  REFERENCES pubs (cod_pub),
+  FOREIGN KEY (dni_employee) 
+  REFERENCES employees (dni_employee)
   );
   
  CREATE TABLE `titular` (
