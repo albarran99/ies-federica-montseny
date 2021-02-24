@@ -3,11 +3,12 @@
 	(Esta bien)
 */
 
+CREATE SCHEMA managment_pubs;
+
 CREATE TABLE `empleado` (
   `DNI_empleado` varchar(9) PRIMARY KEY,
   `nombre` varchar(20) NOT NULL,
-  `domicilio` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`DNI_empleado`)
+  `domicilio` varchar(20) DEFAULT NULL
   );
   
   CREATE TABLE `existencias` (
@@ -40,12 +41,6 @@ CREATE TABLE `empleado` (
   `domicilio` varchar(20) NOT NULL,
   `COD_pub` int NOT NULL,
   PRIMARY KEY (`DNI_titular`)
-  );
-  
-  CREATE TABLE PUB_empleado (
-  cod_pub VARCHAR(20) NOT NULL,
-  dni_empleado VARCHAR(20) NOT NULL,
-  funcion VARCHAR(20) NOT NULL
   );
   
   /*
@@ -156,22 +151,22 @@ ALTER TABLE pubs
 ADD CONSTRAINT FK_pubs_cities
 FOREIGN KEY (COD_localidad) REFERENCES cities(COD_localidad);
 
-#EJER8
+-- #EJER8
 
-ALTER TABLE owners
-DROP FOREIGN KEY FK_owners_pubs;
+-- ALTER TABLE owners
+-- DROP FOREIGN KEY FK_owners_pubs;
 
-ALTER TABLE pub_employees
-DROP FOREIGN KEY FK_pub_employees_pubs;
+-- ALTER TABLE pub_employees
+-- DROP FOREIGN KEY FK_pub_employees_pubs;
 
-ALTER TABLE pub_employees
-DROP FOREIGN KEY FK_pub_employees_employees;
+-- ALTER TABLE pub_employees
+-- DROP FOREIGN KEY FK_pub_employees_employees;
 
-ALTER TABLE stocks
-DROP FOREIGN KEY FK_stocks_pubs;
+-- ALTER TABLE stocks
+-- DROP FOREIGN KEY FK_stocks_pubs;
 
-ALTER TABLE pubs
-DROP FOREIGN KEY FK_pubs_cities;
+-- ALTER TABLE pubs
+-- DROP FOREIGN KEY FK_pubs_cities;
 
 #EJER9
 
@@ -209,3 +204,5 @@ DROP FOREIGN KEY FK_pubs_cities;
   FOREIGN KEY (COD_localidad)
   REFERENCES pubs (COD_localidad)
   );
+  
+  # EJER 
