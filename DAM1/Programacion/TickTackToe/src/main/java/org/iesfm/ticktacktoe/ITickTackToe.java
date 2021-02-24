@@ -1,8 +1,8 @@
-package orgiesfm.ticktacktoe;
+package org.iesfm.ticktacktoe;
 
-import orgiesfm.ticktacktoe.exceptions.InvalidPositionException;
-import orgiesfm.ticktacktoe.exceptions.NotYourTurnException;
-import orgiesfm.ticktacktoe.exceptions.PositionInUseException;
+import org.iesfm.ticktacktoe.exceptions.InvalidPositionException;
+import org.iesfm.ticktacktoe.exceptions.NotYourTurnException;
+import org.iesfm.ticktacktoe.exceptions.PositionInUseException;
 
 public interface ITickTackToe {
     void putX(int x, int y) throws InvalidPositionException, PositionInUseException, NotYourTurnException;
@@ -15,9 +15,9 @@ public interface ITickTackToe {
 
     void setBoard(Character[][] board);
 
-    String getWinner();
+    Character getWinner();
 
-    String getTurn();
+    Character getTurn();
 
     Character[][] getBoard();
 }
