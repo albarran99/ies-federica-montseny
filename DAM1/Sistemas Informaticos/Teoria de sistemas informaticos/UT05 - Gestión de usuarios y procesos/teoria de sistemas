@@ -1,0 +1,7 @@
+el planificador mantiene una cola de prioridad con los procesos que se estan ejecutando
+
+se le asigna un tiempo de ejecucion (llamado cuantum) a un proceso esto hace uso de la cpu disponible
+
+una vez terminado el tiempo asignado, se produce una interrupcion de reloj, que hace que el proceso se detenga y se devuelva el control al sistema operativo
+
+a continuacion el sistema operativo coge otro proceso de la cola de prioridad y lo pone en ejecucion

@@ -2,14 +2,13 @@ package org.iesfm.ticktacktoe;
 
 import org.junit.Assert;
 import org.junit.Test;
-import orgiesfm.ticktacktoe.TickTackToe;
-import orgiesfm.ticktacktoe.exceptions.InvalidPositionException;
-import orgiesfm.ticktacktoe.exceptions.NotYourTurnException;
-import orgiesfm.ticktacktoe.exceptions.PositionInUseException;
+import org.iesfm.ticktacktoe.exceptions.InvalidPositionException;
+import org.iesfm.ticktacktoe.exceptions.NotYourTurnException;
+import org.iesfm.ticktacktoe.exceptions.PositionInUseException;
 
 public class TickTackToeTest {
 
-    private TickTackToe game = new TickTackToe();
+    private final TickTackToe game = new TickTackToe();
 
     @Test
     public void finishedOWinnrTest() {
@@ -41,7 +40,7 @@ public class TickTackToeTest {
 
         // Text execution
 
-        String winner = game.getWinner();
+        Character winner = game.getWinner();
 
         //Assertions
 
@@ -124,8 +123,8 @@ public class TickTackToeTest {
 
         Character[][] expectedboard = {
                 {null, null, null},
-                {null, TickTackToe.O, TickTackToe.X},
-                {null, null, null}
+                {null, TickTackToe.O, null},
+                {null, null , null}
         };
 
         //Assertions

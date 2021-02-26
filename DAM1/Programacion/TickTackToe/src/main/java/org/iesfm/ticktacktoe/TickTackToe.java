@@ -1,8 +1,8 @@
-package orgiesfm.ticktacktoe;
+package org.iesfm.ticktacktoe;
 
-import orgiesfm.ticktacktoe.exceptions.InvalidPositionException;
-import orgiesfm.ticktacktoe.exceptions.NotYourTurnException;
-import orgiesfm.ticktacktoe.exceptions.PositionInUseException;
+import org.iesfm.ticktacktoe.exceptions.InvalidPositionException;
+import org.iesfm.ticktacktoe.exceptions.NotYourTurnException;
+import org.iesfm.ticktacktoe.exceptions.PositionInUseException;
 
 public class TickTackToe implements ITickTackToe {
 
@@ -38,23 +38,23 @@ public class TickTackToe implements ITickTackToe {
                 throw new InvalidPositionException();
             }
         } else {
-            throw  new NotYourTurnException();
+            throw new NotYourTurnException();
         }
     }
 
     @Override
     public void putO(int x, int y) throws InvalidPositionException, PositionInUseException, NotYourTurnException {
-        if(!isXTurn()){
+        if (!isXTurn()) {
             if (isValidPosition(x, y)) {
-                if(!isOccuiedPosition(x, y)){
+                if (!isOccuiedPosition(x, y)) {
                     board[x][y] = O;
-                } else{
+                } else {
                     throw new PositionInUseException();
                 }
-            }else{
+            } else {
                 throw new InvalidPositionException();
             }
-        }else {
+        } else {
             throw new NotYourTurnException();
         }
 
@@ -78,7 +78,7 @@ public class TickTackToe implements ITickTackToe {
             }
 
         }
-        return count%2 == 0;
+        return count % 2 == 0;
     }
 
     @Override
@@ -88,7 +88,20 @@ public class TickTackToe implements ITickTackToe {
 
     @Override
     public boolean isFinished() {
-        return false;
+        boolean finished = true;
+        if (getWinner() == null) {
+            for (int i = 0; i < board.length; i++) {
+                Character[] columna = board[i];
+                for (int j = 0; j < board.length; j++) {
+                    Character casilla = columna[j];
+                    if (casilla == null) {
+                        finished = true;
+                    }
+                }
+            }
+
+        }
+        return finished;
     }
 
     @Override
@@ -97,17 +110,50 @@ public class TickTackToe implements ITickTackToe {
     }
 
     @Override
-    public String getWinner() {
-        return null;
+    public Character getWinner() {
+        Character winner = null;
+        for (int i = 0; i < board.length; i++) {
+            Character casilla1 = board[i][0];
+            Character casilla2 = board[i][1];
+            Character casilla3 = board[i][2];
+            if (casilla1 == casilla2 && casilla2 == casilla3) {
+                winner = casilla1;
+            }
+        }
+
+        for (int i = 0; i < board.length; i++) {
+            Character casilla1 = board[0][i];
+            Character casilla2 = board[1][i];
+            Character casilla3 = board[2][i];
+            if (casilla1 == casilla2 && casilla2 == casilla3) {
+                winner = casilla1;
+            }
+        }
+        if (board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
+            winner = board[1][1];
+        } else if (board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
+            winner = board[2][2];
+        }
+        return winner;
     }
 
     @Override
-    public String getTurn() {
-        return null;
+    public Character getTurn() {
+        if (isXTurn()) {
+            return X;
+        } else {
+            return O;
+        }
     }
 
     @Override
     public Character[][] getBoard() {
+        Character[][] board = {
+
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+        };
         return board;
     }
 }
