@@ -27,7 +27,7 @@ ALTER TABLE patata
 ADD CONSTRAINT UC_verengena_id UNIQUE (verengena_id);
 
 ALTER TABLE verengena
-ADD CONSTRAINT CHK_fecha_verengena CHECK (0 > 100);
+ADD CONSTRAINT CHK_fecha_verengena CHECK (fecha_verengena > 100);
 
 CREATE INDEX index_id
 ON patata (id);
