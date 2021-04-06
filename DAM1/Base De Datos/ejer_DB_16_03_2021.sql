@@ -50,6 +50,8 @@ VALUE (6, 'Julián', 'Romeral', 'Director', 'Av. las naciones', '2010-03-19', 11
 INSERT INTO empleados
 VALUE (7, 'Luis', 'Alonso', 'Director', 'Av. las palmas', '2010-03-19', 11000, 0.15, 'Marketing');
 
+SELECT * FROM empleados;
+
 -- 4 Actualiza el apelllido de Julián Romeral por Alonso.
 
 UPDATE empleados
@@ -89,100 +91,102 @@ WHERE id = 2;
 -- 10 Modificar la comisión de todos los empleados de la empresa, de forma que todos tengan un incremento del 10% del salario.
 
 UPDATE empleados
-SET comision = salario * 0.10;
+SET comision = comision * 1.10;
 
 -- 11 Modifica el salario de 2 empleados para que cobren más de 32000€.
 
 UPDATE empleados
 SET salario = '40000'
-WHERE id = 2 AND id = 3;
+WHERE id = 2 OR id = 3;
 
 -- 12 Modificar la comisión de los empleados de la empresa que cobren más de 32000€, de forma que todos los que cumplan este requisito tengan un incremento del 12% del salario.
 
 UPDATE empleados
-SET comision = salario * 0.12
-WHERE salario >= 320000;
+SET salario = salario + (salario * 1.12)
+WHERE salario > 32000;
 
 -- 13  Incrementar un 5% el salario de los empleados en prácticas del departamento de INFORMATICA.
 
 UPDATE empleados 
-SET comision = salario * 0.05
+SET salario = salario + (salario * 0.05)
 WHERE oficio = 'Practicas' AND dept_no = 'Informatica';
 
 -- 14 Incrementar un 8% el salario de los programadores del departamento de INFORMATICA
 
 UPDATE empleados
-SET comision = salario * 0.08
-WHERE oficio = 'Programadores' AND dept_no = 'Informatica';
+SET salario = salario + (salario * 0.08)
+WHERE oficio = 'Programador' AND dept_no = 'Informatica';
 
 -- 15 Incrementar un 6% el salario de los empleados del departamento de ventas que cobren menos de 20000€.
 
 UPDATE empleados
-SET comision = salario * 0.06
-WHERE dept_no = 'Ventas' AND salario <= 20000;
+SET salario = salario + (salario * 0.06)
+WHERE dept_no = 'Ventas' AND salario < 20000;
 
 -- 16 Incrementar un 8% el salario de los empleados del departamento de informática.
 
 UPDATE empleados
-SET comision = salario * 0.08
+SET salario = salario + (salario * 0.08)
 WHERE dept_no = 'Informatica';
 
 -- 17 Reduce un 3% el salario de los empleados del departamento de marketing.
 
 UPDATE empleados
-SET comision = salario - 0.03
+SET salario = salario - (salario * 0.03)
 WHERE dept_no = 'Marketing';
 
 -- 18 Reduce un 5% el salario de los directores que cobren más de 40000.
 
 UPDATE empleados
-SET comision = salario - 0.05
-WHERE oficio = 'Directores' AND salario >= 40000;
+SET salario = salario - (salario * 0.05)
+WHERE oficio = 'Directores' AND salario > 40000;
 
 -- 19 Incrementar en 1000€ el salario de los empleados del departamento de marketing.
 
 UPDATE empleados
-SET salario = salario + 10000
+SET salario = salario + 1000
 WHERE dept_no = 'Marketing';
 
 -- 20 Incrementar en 1500€ el salario de los comerciales.
 
 UPDATE empleados
-SET salario = salario + 15000
+SET salario = salario + 1500
 WHERE oficio = 'Comercial';
 
 -- 21 Incrementar en 5,75% el salario de los empleados que cobren más de 20000€.
 
 UPDATE empleados
-SET salario = comision * 0.0575
+SET salario = salairo + (salario * 0.0575)
 WHERE salario >= 20000;
 
 -- 22 Incrementar en un 12,5% el salario de los empleados que cobren menos de 20000€.
 
 UPDATE empleados
-SET salario = comision * 0.125
-WHERE salario <= 20000;
+SET salario = salario + (salario * 0.125)
+WHERE salario < 20000;
 
 -- 23 Incrementa un 5% el salario de los empleados que no sean del departamento de VENTAS.
 
 UPDATE empleados
-SET salario = comision * 0.05
+SET salario = salario + (salario * 0.05)
 WHERE dept_no != 'Ventas';
 
 -- 24 Incrementa un 2,5% el salario de los empleados que sean del departamento de MARKETING o de INFORMATICA.
 
 UPDATE empleados
-SET salario = comision * 0.025
+SET salario = salario + (salario * 0.025)
 WHERE dept_no = 'Marketing' OR dept_no = 'Informatica';
 
 -- 25 Sube el salario en 1000€ y la comisión al 16% del salario a los empleados que se dieron de alta en este año.
 
 UPDATE empleados
-SET salario = comision * 0.16 AND salario = salario + 1000
+SET comision = salario + (salario * 0.16) , salario = salario + 1000
 WHERE fecha_alt = current_date();
 
 -- 26  Sube el salario en un 5% y la comisión sea del 10% del salario a los empleados que se lleven en la empresa más de 10 años.
 
 UPDATE empleados
-SET salario = comision * 0.05 AND comision = 0.10
-WHERE fecha_alt >= ;
+SET salario = salario +  (salario * 0.05), comision = (salario * 0.10)
+WHERE fecha_alt > '2010-03-18';
+
+SELECT * FROM empleados;
